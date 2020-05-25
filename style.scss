@@ -1,0 +1,154 @@
+@mixin flexBox($between) {
+    display: flex;
+    justify-content: $between;
+    align-items: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 16px;
+  box-sizing: border-box;
+  background: rgb(147,147,147);
+  background: radial-gradient(circle, rgba(147,147,147,1) 0%, rgba(0,0,0,1) 100%);
+}
+.calc-container {
+    @include flexBox(center);
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(49, 107, 146, 0.37);
+}
+.calcBox {
+    @include flexBox(center);
+    width: 50%;
+    height: 90%;
+    background: rgba(27, 27, 27, 0.507);
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    flex-direction: column;
+    position: relative;
+    .inputValue {
+        @include flexBox(right);
+        width: 80%;
+        height: 18%;
+        background-color: rgba(170, 170, 170, 0.781);
+        margin-top: 15px;
+        user-select: none;
+        p {
+            overflow-x: auto;
+            margin: 0 10px;
+        }
+    }
+    .buttonsBox {
+        @include flexBox(center);
+        width: 80%;
+        height: 90%;
+        .buttonsHolder {
+            width: 100%;
+            height: 90%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-template-columns: auto auto auto auto auto auto auto auto;
+            grid-template-rows: auto auto auto; 
+            column-gap: auto;
+            row-gap: auto;
+            button {
+                @include flexBox(center);
+                width: 80%;
+                height: 60%;
+                border: none;
+                border-radius: 50px;
+                color: white;
+                background-color: rgb(138, 138, 138);
+                font-size: 20px;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(94, 94, 94);
+                }
+                &:active {
+                    background-color: rgb(63, 63, 63);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+.calc-container {
+    @include flexBox(center);
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(49, 107, 146, 0.37);
+}
+.calcBox {
+    @include flexBox(center);
+    width: 90%;
+    height: 90%;
+    background: rgba(27, 27, 27, 0.507);
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    flex-direction: column;
+    position: relative;
+    .inputValue {
+        @include flexBox(right);
+        width: 80%;
+        height: 18%;
+        background-color: rgba(170, 170, 170, 0.781);
+        margin-top: 15px;
+        user-select: none;
+        p {
+            overflow-x: auto;
+            margin: 0 10px;
+        }
+    }
+.buttonsBox {
+        @include flexBox(center);
+        width: 80%;
+        height: 90%;
+        .buttonsHolder {
+            width: 100%;
+            height: 90%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-template-columns: auto auto auto auto auto auto auto auto;
+            grid-template-rows: auto auto auto; 
+            column-gap: auto;
+            row-gap: auto;
+            button {
+                @include flexBox(center);
+                width: 80%;
+                height: 80%;
+                border: none;
+                border-radius: 50px;
+                color: white;
+                background-color: rgb(138, 138, 138);
+                font-size: 15px;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(94, 94, 94);
+                }
+                &:active {
+                    background-color: rgb(63, 63, 63);
+                }
+            }
+        }
+    }
+}
+}
+@media (max-height: 600px) {
+.calc-container {
+    height: 100vh;
+    background-color: inherit;
+}
+.calcBox {
+    width: 80%;
+}
+}
